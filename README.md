@@ -5,19 +5,23 @@ authentication, headers/cookies, JSON schema validation, and full CRUD
 workflows against public practice APIs (Restful Booker, JSONPlaceholder,
 GitHub, OpenWeatherMap, WeatherAPI, Imgur).
 
-## Folder structure
+## Folder Structure
+
+```text
 api-automation-framework/
-├── .github/workflows/api-tests.yml   # CI: runs tests on every push/PR
+├── .github/
+│   └── workflows/
+│       └── api-tests.yml             # CI: runs tests on every push/PR
 ├── config/
 │   └── config.py                     # Reads secrets/URLs from env vars
 ├── tests/
 │   ├── auth/
-│   │   └── test_auth.py              # Basic, Bearer, API key, OAuth2
+│   │   └── test_auth.py              # Basic, Bearer, API Key, OAuth2
 │   ├── booking/
 │   │   ├── test_create_booking.py
 │   │   ├── test_create_booking_faker.py
 │   │   ├── test_create_booking_json.py
-│   │   └── test_crud_operations.py   # Full Create→Read→Update→Delete flow
+│   │   └── test_crud_operations.py   # Full Create → Read → Update → Delete flow
 │   ├── headers_cookies/
 │   │   ├── test_cookies_response.py
 │   │   ├── test_headers.py
@@ -30,8 +34,9 @@ api-automation-framework/
 ├── conftest.py                       # Shared api_context fixture
 ├── pytest.ini
 ├── requirements.txt
-├── .env.example                      # Template - copy to .env, fill in real values
+├── .env.example                      # Template - copy to .env and fill real values
 └── .gitignore                        # Excludes .env, caches, reports
+```
 
 
 ## Setup
