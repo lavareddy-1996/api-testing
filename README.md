@@ -27,7 +27,7 @@ api-automation-framework/
 ├── testdata/                         # JSON payloads used by data-driven tests
 ├── utils/
 │   └── json_reader.py                # Shared helper to load testdata/*.json
-├── conftest.py                       # Shared `api_context` fixture
+├── conftest.py                       # Shared api_context fixture
 ├── pytest.ini
 ├── requirements.txt
 ├── .env.example                      # Template - copy to .env, fill in real values
