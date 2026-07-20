@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # API Test Automation Framework
 
 API test automation built with **Playwright (Python)** and **PyTest**, covering
@@ -101,3 +102,7 @@ pytest tests/auth/test_auth.py
   code before each run (codes are single-use and short-lived).
 - `testdata/*.json` files were reconstructed to match this framework's
   structure - adjust values as needed for your own test scenarios.
+=======
+# api-testing
+API test automation built with Playwright (Python) and PyTest, covering authentication, headers/cookies, JSON schema validation, and full CRUD workflows against public practice APIs (Restful Booker, JSONPlaceholder, GitHub, OpenWeatherMap, WeatherAPI, Imgur).
+>>>>>>> 4f8466a4d7a89e6c7032f2d809fd754e501bbfde
