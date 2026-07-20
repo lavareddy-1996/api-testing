@@ -7,10 +7,12 @@ def test_response_headers_soft_checks(api_context):
     response = api_context.get(url)
 
     assert response.ok, "Request was not successful."
-    assert response.status == 200, f"Expected status code 200, but got {response.status}"
-    assert response.status_text == "OK", (
-        f"Expected status text 'OK', but got '{response.status_text}'"
-    )
+    assert (
+        response.status == 200
+    ), f"Expected status code 200, but got {response.status}"
+    assert (
+        response.status_text == "OK"
+    ), f"Expected status text 'OK', but got '{response.status_text}'"
 
     headers = response.headers
 
@@ -31,6 +33,8 @@ def test_response_headers_soft_checks(api_context):
     # Accepts any of the common compression algorithms, since the server
     # may choose different encodings depending on client/region.
     if content_encoding:
-        assert content_encoding in ["gzip", "br", "zstd"], (
-            f"Unexpected Content-Encoding: {content_encoding}"
-        )
+        assert content_encoding in [
+            "gzip",
+            "br",
+            "zstd",
+        ], f"Unexpected Content-Encoding: {content_encoding}"

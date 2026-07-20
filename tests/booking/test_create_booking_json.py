@@ -27,4 +27,6 @@ def test_create_booking_from_json(api_context):
     assert booking["depositpaid"] == request_body["depositpaid"]
     assert booking["additionalneeds"] == request_body["additionalneeds"]
     assert booking["bookingdates"]["checkin"] == request_body["bookingdates"]["checkin"]
-    assert booking["bookingdates"]["checkout"] == request_body["bookingdates"]["checkout"]
+    assert (
+        booking["bookingdates"]["checkout"] == request_body["bookingdates"]["checkout"]
+    )

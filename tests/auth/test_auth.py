@@ -53,22 +53,22 @@ def test_bearer_token_auth_github_user(api_context):
     print("Response Body (User details):", response.json())
 
 
-# def test_api_key_auth_open_weather(api_context):
-#     query_params = {"q": "Delhi", "appid": OPENWEATHER_API_KEY}
-#     response = api_context.get(
-#         "https://api.openweathermap.org/data/2.5/weather", params=query_params
-#     )
-#     assert response.status == 200
-#     print("Response body:", response.json())
+def test_api_key_auth_open_weather(api_context):
+    query_params = {"q": "Delhi", "appid": OPENWEATHER_API_KEY}
+    response = api_context.get(
+        "https://api.openweathermap.org/data/2.5/weather", params=query_params
+    )
+    assert response.status == 200
+    print("Response body:", response.json())
 
 
-# def test_api_key_auth_weather_api(api_context):
-#     query_params = {"q": "Bangalore", "key": WEATHERAPI_KEY}
-#     response = api_context.get(
-#         "https://api.weatherapi.com/v1/current.json", params=query_params
-#     )
-#     assert response.status == 200
-#     print("Weather info:", response.json())
+def test_api_key_auth_weather_api(api_context):
+    query_params = {"q": "Bangalore", "key": WEATHERAPI_KEY}
+    response = api_context.get(
+        "https://api.weatherapi.com/v1/current.json", params=query_params
+    )
+    assert response.status == 200
+    print("Weather info:", response.json())
 
 
 # ---------------------------------------------------------------------------
@@ -82,26 +82,26 @@ def test_bearer_token_auth_github_user(api_context):
 # 3. Set IMGUR_CLIENT_ID, IMGUR_CLIENT_SECRET, and IMGUR_AUTH_CODE in your
 #    .env file before running this test.
 # ---------------------------------------------------------------------------
-# def test_oauth2_authentication_imgur(api_context):
-#     token_response = api_context.post(
-#         "https://api.imgur.com/oauth2/token",
-#         form={
-#             "client_id": IMGUR_CLIENT_ID,
-#             "client_secret": IMGUR_CLIENT_SECRET,
-#             "grant_type": "authorization_code",
-#             "code": IMGUR_AUTH_CODE,
-#             "redirect_uri": IMGUR_REDIRECT_URI,
-#         },
-#     )
-#     assert token_response.status == 200
-#     token_data = token_response.json()
-#     access_token = token_data.get("access_token")
-#     print(f"Generated Access Token: {access_token}")
-#     assert access_token is not None, "Access token not found in response!"
-#
-#     image_response = api_context.get(
-#         "https://api.imgur.com/3/account/me/images",
-#         headers={"Authorization": f"Bearer {access_token}"},
-#     )
-#     assert image_response.status == 200
-#     print("Response JSON:", image_response.json())
+def test_oauth2_authentication_imgur(api_context):
+    token_response = api_context.post(
+        "https://api.imgur.com/oauth2/token",
+        form={
+            "client_id": IMGUR_CLIENT_ID,
+            "client_secret": IMGUR_CLIENT_SECRET,
+            "grant_type": "authorization_code",
+            "code": IMGUR_AUTH_CODE,
+            "redirect_uri": IMGUR_REDIRECT_URI,
+        },
+    )
+    assert token_response.status == 200
+    token_data = token_response.json()
+    access_token = token_data.get("access_token")
+    print(f"Generated Access Token: {access_token}")
+    assert access_token is not None, "Access token not found in response!"
+
+    image_response = api_context.get(
+        "https://api.imgur.com/3/account/me/images",
+        headers={"Authorization": f"Bearer {access_token}"},
+    )
+    assert image_response.status == 200
+    print("Response JSON:", image_response.json())

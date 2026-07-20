@@ -3,10 +3,12 @@ def test_cookies_response(api_context):
     response = api_context.get(url)
 
     assert response.ok, "Request was not successful."
-    assert response.status == 200, f"Expected status code 200, but got {response.status}"
-    assert response.status_text == "OK", (
-        f"Expected status text 'OK', but got '{response.status_text}'"
-    )
+    assert (
+        response.status == 200
+    ), f"Expected status code 200, but got {response.status}"
+    assert (
+        response.status_text == "OK"
+    ), f"Expected status text 'OK', but got '{response.status_text}'"
 
     cookies = api_context.storage_state()["cookies"]
     for cookie in cookies:

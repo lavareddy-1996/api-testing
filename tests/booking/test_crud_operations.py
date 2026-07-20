@@ -33,7 +33,9 @@ def test_create_booking(booking_session_context):
     """Create a new booking and validate response"""
     data = read_json("post_request_body.json")
 
-    response = booking_session_context.post(f"{RESTFUL_BOOKER_BASE_URL}/booking", data=data)
+    response = booking_session_context.post(
+        f"{RESTFUL_BOOKER_BASE_URL}/booking", data=data
+    )
 
     assert response.ok
     assert response.status == 200
@@ -63,7 +65,9 @@ def test_create_booking(booking_session_context):
 # -------------------------------------------------------------------
 def test_get_booking_by_id(booking_session_context):
     """Get booking details using booking ID"""
-    response = booking_session_context.get(f"{RESTFUL_BOOKER_BASE_URL}/booking/{booking_id}")
+    response = booking_session_context.get(
+        f"{RESTFUL_BOOKER_BASE_URL}/booking/{booking_id}"
+    )
 
     assert response.ok
     assert response.status == 200
@@ -78,7 +82,9 @@ def test_get_booking_by_id(booking_session_context):
 def test_get_booking_by_name(booking_session_context):
     """Get bookings filtered by first and last name"""
     name_params = {"firstname": "Jim", "lastname": "Brown"}
-    response = booking_session_context.get(f"{RESTFUL_BOOKER_BASE_URL}/booking", params=name_params)
+    response = booking_session_context.get(
+        f"{RESTFUL_BOOKER_BASE_URL}/booking", params=name_params
+    )
 
     assert response.ok
     assert response.status == 200
@@ -94,7 +100,9 @@ def test_get_booking_by_name(booking_session_context):
 def test_get_booking_by_dates(booking_session_context):
     """Get bookings filtered by check-in and check-out dates"""
     date_params = {"checkin": "2025-12-15", "checkout": "2025-12-20"}
-    response = booking_session_context.get(f"{RESTFUL_BOOKER_BASE_URL}/booking", params=date_params)
+    response = booking_session_context.get(
+        f"{RESTFUL_BOOKER_BASE_URL}/booking", params=date_params
+    )
 
     assert response.ok
     assert response.status == 200
@@ -114,7 +122,9 @@ def test_get_booking_by_dates(booking_session_context):
 def test_create_token(booking_session_context):
     """Create an authentication token for further operations"""
     data = read_json("token_request_body.json")
-    response = booking_session_context.post(f"{RESTFUL_BOOKER_BASE_URL}/auth", data=data)
+    response = booking_session_context.post(
+        f"{RESTFUL_BOOKER_BASE_URL}/auth", data=data
+    )
 
     assert response.ok
     assert response.status == 200
